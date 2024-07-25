@@ -1,11 +1,10 @@
-version: '3'
 services:
   mysql:
     image: 'mysql:latest'
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: SpringApi
-      MYSQL_USER: root
+      MYSQL_USER: davi
       MYSQL_PASSWORD: root
     ports:
-      - '3306'
+      - "3306:3306"
