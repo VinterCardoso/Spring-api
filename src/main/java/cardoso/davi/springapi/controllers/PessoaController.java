@@ -41,6 +41,16 @@ public class PessoaController {
         }
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<Object> getPessoaById(@PathVariable("id") Long id) {
+        try {
+            Pessoa response = this.pessoaService.getById(id);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(HttpStatus.BAD_REQUEST, e.getMessage()));
+        }
+    }
+
     @PostMapping()
     public ResponseEntity<Object> save(@RequestBody CreatePessoaDTO createPessoaDTO) {
         try {

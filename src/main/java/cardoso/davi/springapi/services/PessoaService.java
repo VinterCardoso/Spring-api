@@ -109,4 +109,8 @@ public class PessoaService {
     public List<Pessoa> getByNome(String nome) throws Exception {
         return this.pessoaRepository.findByNomeContainingIgnoreCase(nome);
     }
+
+    public Pessoa getById(Long id) throws Exception {
+        return this.pessoaRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Pessoa não encontrada"));
+    }
 }
